@@ -1,9 +1,12 @@
 import React from 'react';
 import logo from './logo.svg';
 
-function App() {
+import CommonHeader from './components/CommonHeader'
+
+function App () {
   return (
     <div className="App">
+      <CommonHeader />
     </div>
   );
 }
