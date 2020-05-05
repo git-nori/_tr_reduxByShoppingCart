@@ -16,8 +16,10 @@ const initialState = {
     { id: 5, title: 'Cropped-sho', desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, ex.", price: 160, img: Item5 },
     { id: 6, title: 'Blues', desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, ex.", price: 90, img: Item6 }
   ],
-  addedItems: [],
-  total: 0
+  addedItems: [
+    { id: 1, title: 'Winter body', desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, ex.", price: 110, img: Item1, quantity: 1 },
+  ],
+  total: 110
 }
 
 const CartSlice = createSlice({
@@ -25,11 +27,11 @@ const CartSlice = createSlice({
   initialState,
   reducers: {
     addItem: (state, action) => {
-      const {id, cnt} = action.payload
+      const { id, cnt } = action.payload
       const addedItem = state.addedItems.find(item => item.id === id)
       const item = state.items.find(item => item.id === id)
 
-      if(addedItem) {
+      if (addedItem) {
         // カートに追加済みの場合
         addedItem.quantity += cnt
       } else {
