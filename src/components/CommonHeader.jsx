@@ -5,7 +5,7 @@ import { BsBagFill } from "react-icons/bs";
 
 const CommonHeader = () => {
   return (
-    <Navbar bg="info" variant="dark">
+    <Navbar bg="info" variant="dark" className="mb-3">
       <Navbar.Brand href="/">Shopping</Navbar.Brand>
       <Nav className="ml-auto">
         <Nav.Link href="/">Shop</Nav.Link>
