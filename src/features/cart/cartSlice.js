@@ -31,18 +31,30 @@ const CartSlice = createSlice({
       const addedItem = state.addedItems.find(item => item.id === id)
       const item = state.items.find(item => item.id === id)
 
-      if (addedItem) {
-        // カートに追加済みの場合
-        addedItem.quantity += cnt
+      if (cnt) {
+        if (addedItem) {
+          // カートに追加済みの場合
+          addedItem.quantity += cnt
+        } else {
+          item.quantity = cnt
+          state.addedItems.push(item)
+        }
+        state.total += (item.price * cnt)
       } else {
-        item.quantity = cnt
-        state.addedItems.push(item)
+        addedItem.quantity += 1
+        state.total += addedItem.price
       }
-      state.total += (item.price * cnt)
+    },
+    removeItem: (state, action) => {
+      const id = action.payload
+      const item = state.addedItems.find(item => item.id === id)
+
+      state.total -= item.price * item.quantity
+      state.addedItems = state.addedItems.filter(item => item.id !== id)
     }
   }
 })
 
-export const { addItem } = CartSlice.actions
+export const { addItem, removeItem } = CartSlice.actions
 
 export default CartSlice.reducer
