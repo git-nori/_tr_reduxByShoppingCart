@@ -12,8 +12,7 @@ const ItemListPage = () => {
   const dispatch = useDispatch()
 
   const handleAddItem = (id) => {
-    // dispatch(addItem(id))
-    console.log(id)
+    dispatch(addItem(id))
   }
 
   return (
