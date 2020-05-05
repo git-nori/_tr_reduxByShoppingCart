@@ -25,18 +25,18 @@ const CartSlice = createSlice({
   initialState,
   reducers: {
     addItem: (state, action) => {
-      const id = action.payload
+      const {id, cnt} = action.payload
       const addedItem = state.addedItems.find(item => item.id === id)
       const item = state.items.find(item => item.id === id)
 
       if(addedItem) {
         // カートに追加済みの場合
-        addedItem.quantity += 1
+        addedItem.quantity += cnt
       } else {
-        item.quantity = 1
+        item.quantity = cnt
         state.addedItems.push(item)
       }
-      state.total += item.price
+      state.total += (item.price * cnt)
     }
   }
 })

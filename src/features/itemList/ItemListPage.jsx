@@ -11,8 +11,8 @@ const ItemListPage = () => {
   const items = useSelector(state => state.cart.items)
   const dispatch = useDispatch()
 
-  const handleAddItem = (id) => {
-    dispatch(addItem(id))
+  const handleAddItem = (id, cnt) => {
+    dispatch(addItem({id, cnt}))
   }
 
   return (
