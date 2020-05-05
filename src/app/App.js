@@ -1,7 +1,6 @@
 import React from 'react';
-import logo from './logo.svg';
 
-import CommonHeader from './components/CommonHeader'
+import CommonHeader from '../components/CommonHeader'
 
 function App () {
   return (
